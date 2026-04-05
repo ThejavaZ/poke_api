@@ -6,15 +6,27 @@ class PokeApi extends StatelessWidget {
 
   static const String _title = "PokeApi";
 
+  final ThemeMode _mode = ThemeMode.system;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.red),
-        useMaterial3: false,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+          brightness: Brightness.light,
+        ),
       ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.red,
+          brightness: Brightness.dark,
+        ),
+      ),
+      themeMode: _mode,
       home: const MyHomePage(title: _title),
     );
   }
